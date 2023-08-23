@@ -1,92 +1,139 @@
-# Conditional_Profile_Card
+<!--hide-->
+# Conditional Profile Card
+<!--endhide-->
 
+Note: Make sure that you have node.js installed in your computer by typing in your terminal:
 
-
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlab.com/LarissonRivero/conditional_profile_card.git
-git branch -M main
-git push -uf origin main
+```bash
+$ node -v
 ```
 
-## Integrate with your tools
+## 🌱  How to start this project
 
-- [ ] [Set up project integrations](https://gitlab.com/LarissonRivero/conditional_profile_card/-/settings/integrations)
+This project comes with the necessary files to start working immediately.
 
-## Collaborate with your team
+We recommend opening this very same repository using a provisioning tool like [Codespaces](https://4geeks.com/lesson/what-is-github-codespaces) (recommended) or [Gitpod](https://4geeks.com/lesson/how-to-use-gitpod). Alternatively, you can clone it on your local computer using the `git clone` command.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+This is the repository you need to open:
 
-## Test and Deploy
+```
+https://github.com/breatheco-de/exercise-conditional-profile-card.git
+```
 
-Use the built-in continuous integration in GitLab.
+**👉 Please follow these steps on** [how to start a coding project](https://4geeks.com/lesson/how-to-start-a-project).
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+💡 Important: Remember to save and upload your code to GitHub by creating a new repository, updating the remote (`git remote set-url origin <your new url>`), and uploading the code to your new repository using the `add`, `commit` and `push` commands from the git terminal.
 
-***
+## Some context
 
-# Editing this README
+As a web developer, you will be creating lots and lots of dynamic HTML using Javascript based algorithms.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+In this exercise, you have to create the HTML code needed to render a profile card based on a series of variables that could change in value during runtime. Here is an example of the profile card:
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+![Conditional Profile Card](https://github.com/breatheco-de/exercise-conditional-profile-card/blob/master/preview.gif?raw=true)
 
-## Name
-Choose a self-explaining name for your project.
+Inside the src/app.js file there is a `render` function that receives variables and contains the logic to create most of the website HTML code.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+```js
+function render(variables = {}) {
+  document.querySelector("#widget_content").innerHTML = `<div>Website code</div>`;
+}
+```
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+You can see the `variables` that are being generated by typing on the developer console: 
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+```js
+console.log(window.variables);
+/*
+{
+    includeCover: true, // if includeCover is true the algorithm should
+    background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da", // this is the url of the image that will use as background for the profile cover
+    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg", // this is the url for the profile avatar
+    socialMediaPosition: "left", // social media bar position (left or right)
+    
+    twitter: null, // social media usernames
+    github: "alesanchezr",
+    linkedin: null,
+    instagram: null,
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+    name: null,
+    lastname: null,
+    role: null,
+    country: null,
+    city: null
+}
+*/
+```
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+## 📝Instructions
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+These instructions come with a video for better understanding: https://youtu.be/gaVm8eyCqlM
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+1. Read and understand the `render` function and the value of the `variables` variable that it receives.
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+2. Change the content of the `render` function to make it render the variables on the card.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+## 💡 Attention!
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+You **do not** need to add any event listeners to the elements that are already built in the project. This is already being done by this part of the code:
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+```javascript
+document.querySelectorAll(".picker").forEach(function(elm) {
+    elm.addEventListener("change", function(e) {
+      // <- add a listener to every input
+      const attribute = e.target.getAttribute("for"); // when any input changes, collect the value
+      let values = {};
+      values[attribute] =
+        this.value == "" || this.value == "null"
+          ? null
+          : this.value == "true"
+          ? true
+          : this.value == "false"
+          ? false
+          : this.value;
+      render(Object.assign(window.variables, values)); // render again the card with new valus
+    });
+  });
+```
 
-## License
-For open source projects, say how it is licensed.
+So when the elements contents "change" they will already update the variable values for each element. All you need to do is to update the HTML content inside `render` function, as mentioned on instruction 1.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Initial Variable Values
+
+| Name | Type | Default Value | Description |
+| --- | --- | --- | --- |
+| includeCover | boolean | true | it determines if the cover shoud be visible with an image or not |
+| background | string | null | the url of the image that will use as background for the profile cover |
+| avatarURL | string | null | the url for the profile avatar |
+| socialMediaPosition | string | "right" | it can be `left` or `right` and it determines where to place the social media bar |
+| twitter | string | null | the twitter username to be displayed on the profile |
+| github | string | null | the github username to be displayed on the profile |
+| linkedin | string | null | the linkedin username to be displayed on the profile |
+| instagram | string | null | the instagram username to be displayed on the profile |
+| name | string | null | The name of the user to be displayed on the profile |
+| lastname | string | null | The name of the user to be displayed on the profile |
+| role | string | null | The name of the user to be displayed on the profile |
+| country | string | null | The name of the user to be displayed on the profile |
+| city | string | null | the city of the user to be displayed on the profile |
+
+## Hard-Coded HTML
+
+This is an example of a possible HTML output, you will have to replace the name, last-name, etc. With the values that these variables may have.
+
+```html
+<div class="widget">
+  <div class="cover"><img src="https://the_url.com/for_the_background.png" /></div>
+  <img src="https://the_url.com/for_the_image.png" class="photo" />
+  <h1>Ryan Boylett</h1>
+  <h2>Web Developer</h2>
+  <h3>Miami, USA</h3>
+  <ul class="position-right">
+    <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
+    <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
+    <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
+    <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+  </ul>
+</div>
+```
+
+This and many other projects are built by students as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Find out more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), and [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning).
